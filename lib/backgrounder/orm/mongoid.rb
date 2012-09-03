@@ -40,10 +40,6 @@ module CarrierWave
                 ::Sidekiq::Client.enqueue #{worker}, *worker_params
               end
             end
-
-            def trigger_#{column}_background_storage?
-              process_#{column}_upload != true && #{column}_changed?
-            end
           RUBY
         end
       end # Mongoid
